@@ -26,8 +26,9 @@ int main(int argc, char *argv[]) {
     isPalindromeOutput = palindrome(line);
 
     printf("Is the string <%s> a palindrome? %s\n", line, isPalindromeOutput);
+
+    free(isPalindromeOutput);
   }
 
-  free(isPalindromeOutput);
   free(line);
 }
