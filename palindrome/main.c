@@ -6,8 +6,9 @@
 
 int main(int argc, char *argv[]) {
   char *line;
+  char *isPalindromeOutput;
   int size;
-  
+
   size = 100;
   line = (char*) calloc (size + 1, sizeof(char));
 
@@ -20,8 +21,13 @@ int main(int argc, char *argv[]) {
     // Without it, nothing will ever be a palindrome, unless it happens
     // to somehow start with a '\n'.
     line[strcspn(line, "\n")] = '\0';
-    printf("Is the string <%s> a palindrome? %s\n", line, palindrome(line));
+
+   //Set the output of palindrome(line) into a variable for clearing after use.
+    isPalindromeOutput = palindrome(line);
+
+    printf("Is the string <%s> a palindrome? %s\n", line, isPalindromeOutput);
   }
 
+  free(isPalindromeOutput);
   free(line);
 }
