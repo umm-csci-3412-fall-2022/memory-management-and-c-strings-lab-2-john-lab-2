@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "disemvowel.h"
 
@@ -11,7 +12,9 @@ int main(int argc, char *argv[]) {
   line = (char*) malloc (size + 1);
 
   while (getline(&line, &size, stdin) > 0) {
-    printf("%s\n", disemvowel(line));
+    char* output = disemvowel(line);
+    printf("%s\n", output);
+    free(output);
   }
   free(line);
 }
